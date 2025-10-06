@@ -2010,6 +2010,7 @@ name = "matrix-appservices"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "async-channel",
  "bon",
  "genrs",
  "matrix-sdk",

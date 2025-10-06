@@ -14,3 +14,6 @@ pub mod types;
 mod errors;
 pub(crate) use errors::Result;
 pub use errors::Error;
+
+///
+pub mod client;

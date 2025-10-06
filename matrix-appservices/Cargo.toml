@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 anyhow = { workspace = true }
+async-channel = "2.5.0"
 bon = { workspace = true }
 genrs = { workspace = true }
 matrix-sdk = { workspace = true, features = ["anyhow"] }
