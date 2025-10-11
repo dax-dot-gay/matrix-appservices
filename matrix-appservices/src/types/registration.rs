@@ -64,12 +64,15 @@ impl From<Namespace> for ruma_as::Namespace {
 #[serde(rename_all = "snake_case")]
 pub enum NamespaceKind {
     /// A room alias that the application service is interested in
+    #[serde(alias = "alias", alias = "aliases")]
     Alias,
 
     /// A room ID that the application service is interested in
+    #[serde(alias = "room", alias = "rooms")]
     Room,
 
     /// A user ID that the application service is interested in
+    #[serde(alias = "user", alias = "users")]
     User,
 }
 
@@ -320,11 +323,11 @@ impl From<AppServiceRegistration> for ruma_as::Registration {
 impl AppServiceRegistration {
     /// Deserializes AppServiceRegistration from YAML
     pub fn from_yaml(yaml: impl AsRef<str>) -> crate::Result<Self> {
-        Ok(serde_yml::from_str::<AppServiceRegistration>(yaml.as_ref())?)
+        Ok(serde_norway::from_str::<AppServiceRegistration>(yaml.as_ref())?)
     }
 
     /// Serializes AppServiceRegistration into YAML
     pub fn into_yaml(&self) -> crate::Result<String> {
-        Ok(serde_yml::to_string(&self)?)
+        Ok(serde_norway::to_string(&self)?)
     }
 }

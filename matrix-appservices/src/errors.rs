@@ -13,7 +13,7 @@ pub enum Error {
 
     /// YAML error
     #[error("Error in YAML encoding/decoding: {0:?}")]
-    YamlError(Arc<serde_yml::Error>),
+    YamlError(Arc<serde_norway::Error>),
 }
 
 impl From<anyhow::Error> for Error {
@@ -22,8 +22,8 @@ impl From<anyhow::Error> for Error {
     }
 }
 
-impl From<serde_yml::Error> for Error {
-    fn from(value: serde_yml::Error) -> Self {
+impl From<serde_norway::Error> for Error {
+    fn from(value: serde_norway::Error) -> Self {
         Self::YamlError(Arc::new(value))
     }
 }
